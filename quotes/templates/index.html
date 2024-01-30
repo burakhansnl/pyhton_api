@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{%block content%}
+
+
+{%if ticker%}
+    {{ticker}}
+{%endif%}
+
+{%if api%}
+    {% if api == "Error ...." %}
+ write error massge
+    {% else %}
+        {% for thing in api %}
+       <h1>{{thing.companyName}}</h1><br/>
+       Price:$ {{thing.latestPrice}}<br/>
+       PreviousClose {{thing.previousClose}}<br/>
+       MarketCap {{thing.marketCap}}<br/>
+       ytdChange {{thing.ytdChange}}<br/>
+       week52High {{thing.week52High}}<br/>
+       week52Low {{thing.week52Low}}<br/>
+        {% endfor %}
+
+
+
+
+    {%endif%}
+{%endif%}
+{%endblock%}
